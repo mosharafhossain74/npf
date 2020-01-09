@@ -1,47 +1,43 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import styled, { createGlobalStyle } from "styled-components"
 
-import Header from "./header"
+import Header from "./header-second"
+import FOOTER from "./Footer"
+import JSHELPER from "./jquery-helper"
+
 import "./layout.css"
+import "bootstrap/dist/css/bootstrap-grid.css"
+import SEO from "./seo";
+
+
+const GlobalStyles = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800,900&display=swap');
+  body{
+    font-family:montserrat, sans-serif;
+    padding:0;
+    margin:0;
+  }
+
+`
+
+const Primary = styled.main``
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
+    <div>
+      <SEO title="" description="" />
+      <JSHELPER/>
+      <GlobalStyles />
+      <Header>
+      </Header>
+      <Primary id="primary" className="content-area">
+        <main id="main" className="site-main" role="main">
+          {children}
+        </main>
+      </Primary>
+      <FOOTER />
+    </div>
   )
 }
 

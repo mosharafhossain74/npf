@@ -1,21 +1,30 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import Helmet from "react-helmet"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import MainLayout from "../components/layout";
+import SEO from "../components/seo";
+import HEROSECTION from "../components/index/Hero-section";
+import BENEFITSECTION from "../components/index/Benefits-section"
+import CONTENTSECTION from "../components/index/Content-section"
+import LATESTVIDEOSSECTION from "../components/index/Latest-videos"
+import STRATEGIESSECTION from "../components/index/Strategies-section"
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
+  <MainLayout>
+    <Helmet
+    bodyAttributes={{
+      class: 'home'
+    }}
+    >
+
+    </Helmet>
+    <SEO title="Home" description="" />
+    <HEROSECTION/>
+    <BENEFITSECTION/>
+    <CONTENTSECTION/>
+    <LATESTVIDEOSSECTION/>
+    <STRATEGIESSECTION/>
+  </MainLayout>
 )
 
-export default IndexPage
+export default IndexPage;

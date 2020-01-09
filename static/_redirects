@@ -1,0 +1,4 @@
+/wp-content/* https://staging-npf.newpatientflow.com.au/wp-content/:splat 200
+
+# Redirect default Netlify subdomain to primary domain
+http://localhost:8000/* http://localhost:8000/:splat 301!
